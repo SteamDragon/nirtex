@@ -1,0 +1,34 @@
+% второй раздел - файл part2.tex
+
+\section{Название следующего раздела}
+
+\subsection{Исходные коды}
+
+Для отображения исходных кодов (см. пример ссылки на литературу \cite{Rrus1}) можно  воспользоваться окружением \verb|MyCode|:
+
+\begin{MyCode}
+require(ggplot2)
+gi = ggplot(data = iris, aes(x=Sepal.Length,y=Petal.Length))
+gi + geom_point(aes(color=Species))
+\end{MyCode}
+
+
+\subsection{Нумерованные листинги}
+
+Для нумерации листингов и возможности ссылаться на них  предназначено окружение \verb|Program|.
+
+\begin{Program}
+\begin{MyCode}
+#include <stdio.h>
+
+int main(int argc, char **argv){
+  printf("Hello, world");
+  return 0;
+}
+\end{MyCode}
+\caption{Код приветствия}
+\end{Program}
+
+Следует учесть, что объем кода в таком листинге должен быть небольшим --- меньше страницы, а нумерация появляется, если внутри окружения задано название листинга с помощью команды \verb|\caption|. 
+
+Кроме того, положение кода выбирается системой \LaTeXe.

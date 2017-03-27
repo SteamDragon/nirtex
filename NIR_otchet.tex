@@ -1,0 +1,227 @@
+%
+% Шаблон для НИР
+%
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[backend=biber,sorting=none,style=gost-numeric]{biblatex} % библиография
+\usepackage{mathtext} %русские буквы в формулах
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{fancyvrb}
+\usepackage{formular}
+\usepackage{setspace} % управление междустрочными интервалами
+%поля документа
+\usepackage[left=3cm,right=1cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage{misccorr} % точки в конце номеров разделов, использовать перед пакетом ccaption!
+\usepackage{ccaption} % изменения подписей к рисункам и табл.
+% отступ перед первым абзацем
+\usepackage{indentfirst}
+%вставка изображений
+\usepackage{graphicx}
+% счетчики
+\usepackage{totcount}
+% управление содержанием
+\usepackage{tocloft}
+% управление таблицами и рисунками
+\usepackage{float}
+
+%для добавления количества источников в реферат
+\newtotcounter{citnum} %From the package documentation
+\def\oldbibitem{} \let\oldbibitem=\bibitem
+\def\bibitem{\stepcounter{citnum}\oldbibitem}
+
+% окружение для листингов - с нумерацией строк слева
+\DefineVerbatimEnvironment{MyCode}{Verbatim}{frame=lines,numbers=left,numberblanklines=false,framesep=5mm}
+
+% автоматическая нумерация листингов
+\newfloat{Program}{phb}{lop}
+\floatname{Program}{Листинг}
+\floatstyle{ruled}
+
+\setcounter{secnumdepth}{3} % глубина нумерации до подразделов
+
+%если нужны точки в оглавлении для разделов - раскомментируйте следующую команду
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\addto\captionsrussian{%
+\renewcommand{\figurename}{Рисунок}%
+\renewcommand{\tablename}{Таблица}%
+}
+
+% дефис в подписи к рисункам
+\captiondelim{ -- } 
+
+% Настройки для окружений с подчеркиваниями для подписей и пр.
+\setFRMfontencoding{T2A}
+\setFRMdfontencoding{T2A}
+% thanks to A.Starikov
+\setFRMfontfamily{cmr}
+\setFRMdfontfamily{ptm}
+\setFRMdfontsize{10pt}
+
+% задает длину поля для подписи на титульной странице
+\newFRMfield{xtitlesign}{40mm}
+
+% поле для факультета или кафедры
+\newFRMfield{fcath}{65mm}
+
+
+\addbibresource{rbiblio.bib}
+
+\begin{document}
+
+% счетчики страниц, рисунков, таблиц
+\regtotcounter{page}
+\regtotcounter{figure}
+\regtotcounter{table}
+
+\renewcommand{\refname}{\centerline{СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ}} 
+\renewcommand{\contentsname}{\centerline{СОДЕРЖАНИЕ}} 
+%\renewcommand{\refname}{Список источников}  % По умолчанию "Список литературы" (article)
+%\renewcommand{\bibname}{Литература}  % По умолчанию "Литература" (book и report)
+
+% титульная страница
+\thispagestyle{empty}
+\begin{center} \small
+\textbf{МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ}\\
+ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ
+ВЫСШЕГО  ОБРАЗОВАНИЯ\\
+«Национальный исследовательский ядерный университет «МИФИ»\\
+\textbf{Обнинский институт атомной энергетики} – \\
+филиал федерального государственного автономного образовательного учреждения высшего\\
+образования «Национальный исследовательский ядерный университет «МИФИ»\\
+(ИАТЭ НИЯУ МИФИ)
+\end{center}
+%\vfill
+\medskip
+
+% Направление подготовки следует уточнять,
+% магистры и бакалавры могут иметь разные наименования
+\begin{center}
+\begin{tabular}{rl}
+Отделение & \useFRMfield{fcath}[\large Интеллектуальных кибернетических систем] \\ 
+Направление подготовки & \useFRMfield{fcath}[\large Информационные системы и технологии] \\ 
+\end{tabular} 
+\end{center}
+
+\vfill
+
+\large 
+
+\begin{center}
+	Научно-исследовательская работа \\
+	
+	\medskip
+	
+	\textbf{\Large 
+		Тема работы полностью (как в задании)
+	}
+	
+\end{center}
+
+\vspace{1cm}
+
+\begin{tabular*}{\textwidth}{lcr}
+Студент группы ИС-М16 & \useFRMfield{xtitlesign} & Ф.А.Милия\\
+& & \\
+Руководитель & & \\
+д.т.н., должность & \useFRMfield{xtitlesign} & Р.У.Ководитель
+\end{tabular*}
+
+
+\vfill
+\large
+
+\begin{center}
+Обнинск, 2016
+\end{center}
+
+\onehalfspacing
+
+\pagebreak
+
+% реферат
+\thispagestyle{empty}
+
+\section*{\centering РЕФЕРАТ}
+
+% возможно, кол-во источников придется вставлять вручную
+\total{page} стр., \total{table} табл., \total{figure} рис. , \total{citnum} ист. 
+
+КЛЮЧЕВЫЕ СЛОВА, В ВЕРХНЕМ РЕГИСТРЕ
+
+Работа посвящена 
+
+Кратко перечислить результаты.
+\pagebreak
+\thispagestyle{empty}
+
+
+\section*{\centering ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
+
+
+ОДУ --- обыкновенные дифференциальные уравнения.
+
+
+\pagebreak
+
+
+
+\tableofcontents
+% если нужно добавить "Стр." над номерами страниц - раскомментируйте следующую команду
+%\addtocontents{toc}{~\hfill\textbf{Стр.}\par}
+
+\pagebreak
+
+\section*{\centering ВВЕДЕНИЕ}
+\addcontentsline{toc}{section}{ВВЕДЕНИЕ}
+\input{intro} % текст введения в файле intro.tex
+\pagebreak
+
+%\input{Post_zad}
+\pagebreak
+\input{part1}  % первая глава - в файле part1.tex
+\pagebreak
+\input{part2} % вторая глава - в файле part2.tex
+
+
+\pagebreak
+\section*{\centering ЗАКЛЮЧЕНИЕ}
+\addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
+Настоящая научно-исследовательская работа посвящена 
+
+В результате были  разработаны --- перечислить результаты и выводы работы.
+
+% оформление библиографии - вариант с БД
+
+\pagebreak
+
+\addcontentsline{toc}{section}{СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ}
+\printbibliography
+
+\pagebreak
+\section*{\centering Приложение}
+\addcontentsline{toc}{section}{Приложение}
+
+
+\begin{MyCode}
+List<Integer> ints = new ArrayList<>();
+ints.add(1);
+ints.add(2);
+ints.add(3);
+ints.add(4);
+ints.add(5);
+ints.add(6);
+
+Stream stream = 
+  ints.stream()
+    .peek(System.out::println)
+    .filter(i -> i % 2 == 0);
+\end{MyCode}
+
+
+\end{document}          
+
