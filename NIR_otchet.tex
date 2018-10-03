@@ -117,7 +117,7 @@
 	\medskip
 	
 	\textbf{\Large 
-		Тема работы полностью (как в задании)
+		Построение системы учета семейного бюджета с использованием QT Framework
 	}
 	
 \end{center}
@@ -125,10 +125,10 @@
 \vspace{1cm}
 
 \begin{tabular*}{\textwidth}{lcr}
-Студент группы ИС-М16 & \useFRMfield{xtitlesign} & Ф.А.Милия\\
+Студент группы ИС-Б14-З & \useFRMfield{xtitlesign} & А.В. Миронов\\
 & & \\
 Руководитель & & \\
-д.т.н., должность & \useFRMfield{xtitlesign} & Р.У.Ководитель
+к.т.н., доцент & \useFRMfield{xtitlesign} & О.А. Мирзеабасов
 \end{tabular*}
 
 
@@ -136,7 +136,7 @@
 \large
 
 \begin{center}
-Обнинск, 2016
+Обнинск, 2018
 \end{center}
 
 \onehalfspacing
@@ -151,19 +151,11 @@
 % возможно, кол-во источников придется вставлять вручную
 \total{page} стр., \total{table} табл., \total{figure} рис. , \total{citnum} ист. 
 
-КЛЮЧЕВЫЕ СЛОВА, В ВЕРХНЕМ РЕГИСТРЕ
-
-Работа посвящена 
-
-Кратко перечислить результаты.
 \pagebreak
 \thispagestyle{empty}
 
 
 \section*{\centering ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
-
-
-ОДУ --- обыкновенные дифференциальные уравнения.
 
 
 \pagebreak
@@ -186,15 +178,18 @@
 \input{part1}  % первая глава - в файле part1.tex
 \pagebreak
 \input{part2} % вторая глава - в файле part2.tex
+\pagebreak
+\input{part3} % вторая глава - в файле part3.tex
 
 
 \pagebreak
 \section*{\centering ЗАКЛЮЧЕНИЕ}
 \addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
-Настоящая научно-исследовательская работа посвящена 
+Настоящая научно-исследовательская работа посвящена созданию приложения по ведению домашней бухгалтерии на языке
 
-В результате были  разработаны --- перечислить результаты и выводы работы.
+C++ с расширением QT
 
+Framework. В результате была разработано приложение, позволяющее учитывать расходы и доходы в достаточно удобном интерфейсе.
 % оформление библиографии - вариант с БД
 
 \pagebreak
@@ -205,22 +200,6 @@
 \pagebreak
 \section*{\centering Приложение}
 \addcontentsline{toc}{section}{Приложение}
-
-
-\begin{MyCode}
-List<Integer> ints = new ArrayList<>();
-ints.add(1);
-ints.add(2);
-ints.add(3);
-ints.add(4);
-ints.add(5);
-ints.add(6);
-
-Stream stream = 
-  ints.stream()
-    .peek(System.out::println)
-    .filter(i -> i % 2 == 0);
-\end{MyCode}
 
 
 \end{document}          
