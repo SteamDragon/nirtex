@@ -3,7 +3,7 @@
 %
 
 \documentclass[a4paper,12pt]{article}
-\usepackage[backend=biber,sorting=none,style=gost-numeric]{biblatex} % библиография
+\usepackage[backend=biber,sorting=none]{biblatex} % библиография
 \usepackage{mathtext} %русские буквы в формулах
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -46,9 +46,9 @@
 %если нужны точки в оглавлении для разделов - раскомментируйте следующую команду
 %\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
-\addto\captionsrussian{%
-\renewcommand{\figurename}{Рисунок}%
-\renewcommand{\tablename}{Таблица}%
+\addto\captionsrussian{
+\renewcommand{\figurename}{Рисунок}
+\renewcommand{\tablename}{Таблица}
 }
 
 % дефис в подписи к рисункам
@@ -95,7 +95,7 @@
 образования «Национальный исследовательский ядерный университет «МИФИ»\\
 (ИАТЭ НИЯУ МИФИ)
 \end{center}
-%\vfill
+\vfill
 \medskip
 
 % Направление подготовки следует уточнять,
@@ -193,7 +193,9 @@ Framework. В результате была разработано прилож�
 % оформление библиографии - вариант с БД
 
 \pagebreak
-
+\nocite{qtdoc}
+\nocite{qt532015}
+\nocite{Warren2007}
 \addcontentsline{toc}{section}{СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ}
 \printbibliography
 
