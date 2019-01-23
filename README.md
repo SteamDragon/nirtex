@@ -1,3 +1,4 @@
-# nirtex
-Шаблон отчета по НИР для ИС/ИКС ИАТЭ НИЯУ МИФИ
-К сожалению, есть опечатки в комментариях к коммитам. Но это не страшно.
+Диплом 
+
+
+[![Build status](https://steamdragon.visualstudio.com/Snipe%20Studio%20Budget%20Manager/_apis/build/status/Diploma%20Build)](https://steamdragon.visualstudio.com/Snipe%20Studio%20Budget%20Manager/_build/latest?definitionId=1)
