@@ -3,7 +3,7 @@
 %
 
 \documentclass[a4paper,12pt]{article}
-\usepackage[backend=biber,sorting=none]{biblatex} % библиография
+\RequirePackage[backend=biber, style=numeric-comp, citestyle=numeric, sorting=nty, natbib=true]{biblatex} % библиография
 \usepackage{mathtext} %русские буквы в формулах
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -68,8 +68,8 @@
 % поле для факультета или кафедры
 \newFRMfield{fcath}{65mm}
 
-
-\addbibresource{rbiblio.bib}
+\bibliography{rbiblio.bib}
+%\addbibresource{rbiblio.bib}
 
 \begin{document}
 
@@ -78,8 +78,8 @@
 \regtotcounter{figure}
 \regtotcounter{table}
 
-\renewcommand{\refname}{\centerline{СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ}} 
-\renewcommand{\contentsname}{\centerline{СОДЕРЖАНИЕ}} 
+\renewcommand{\refname}{СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ} 
+\renewcommand{\contentsname}{СОДЕРЖАНИЕ} 
 %\renewcommand{\refname}{Список источников}  % По умолчанию "Список литературы" (article)
 %\renewcommand{\bibname}{Литература}  % По умолчанию "Литература" (book и report)
 
@@ -155,15 +155,18 @@
 \section*{\centering РЕФЕРАТ}
 
 % возможно, кол-во источников придется вставлять вручную
-\total{page} стр., \total{table} табл., \total{figure} рис. , \total{citnum} ист. 
+\total{page} стр., \total{table} табл., \total{figure} рис. , \total{citnum} ист. \\
+УЧЕТ, ПЕРСОНАЛЬНЫЕ ФИНАНСЫ, БАЗА ДАННЫХ, ХРАНЕНИЕ, C++, SQLITE \\
+
+Целью данной работы является разработка программный продукт для ведения персональной бухгалтерии. В данной работе производится анализ возможностей создания и использования QRкодов в применении к объектам материального учета. Рассматривается существующая база данных. Описана структура приложения и базы данных. Для разработки программного обеспечения использовался язык программирования C++. Модернизированная база данных реализована в СУБД SQLite.  
 
 \pagebreak
 \thispagestyle{empty}
 
 
-\section*{\centering ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
-
-
+\part*{\centering ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
+\textbf{GUI} - графический интерфейс пользователя\\
+\textbf{Beta-версия} - предварительная версия приложения, доступная неопределённому количеству пользователей\\
 \pagebreak
 
 
@@ -174,7 +177,7 @@
 
 \pagebreak
 
-\section*{\centering ВВЕДЕНИЕ}
+\part*{\centering ВВЕДЕНИЕ}
 \addcontentsline{toc}{section}{ВВЕДЕНИЕ}
 \input{intro} % текст введения в файле intro.tex
 \pagebreak
@@ -183,31 +186,49 @@
 \pagebreak
 \input{part1}  % первая глава - в файле part1.tex
 \pagebreak
-\input{part2} % вторая глава - в файле part2.tex
+%\input{part2} % вторая глава - в файле part2.tex
 \pagebreak
 \input{part3} % третья глава - в файле part3.tex
 \pagebreak
 \input{part4} % четвертая глава - в файле part4.tex
 
 \pagebreak
-\section*{\centering ЗАКЛЮЧЕНИЕ}
+\part*{\centering ЗАКЛЮЧЕНИЕ}
 \addcontentsline{toc}{section}{ЗАКЛЮЧЕНИЕ}
-Настоящая научно-исследовательская работа посвящена созданию приложения по ведению домашней бухгалтерии на языке
+В результате выпускной квалификационной работы был разработан программный продукт для ведения персональной бухгалтерии, который обладает следующими возможностями: 
+\begin{enumerate}
+	\item Функции добавления записи в базу данных. Доход и расход выполнены с использованием отдельных кнопок
+	\item Функции изменения записей в базе данных с возможностью изменить тип записи
+	\item Функции удаления записей в базе данных без возможности их восстановления
+	\item Возможности изменения места хранения лога приложения и базы данных через окно выбора директории
+	\item Возможность изменения отображаемой валюты
+	\item Возможность изменения локализации для следующих языков: \begin{enumerate}
+		\item Русский
+		\item Английский
+		\item Голландский
+		\item Немецкий
+		\item Французский
+	\end{enumerate}
+	\item Возможность изменить уровень логирования вплоть до полного отключения записи логов
+	\item Функцию полной очистки базы данных без возможности восстановления
+	\item Функцию экспорта данных из программы в согласованом формате
+	\item Функцию импорта данных в программу из файла, записанного в согласованном формате
+	\item Функцию работы с горячими клавишами	
+\end{enumerate}
 
-C++ с расширением QT
-
-Framework. В результате была разработано приложение, позволяющее учитывать расходы и доходы в достаточно удобном интерфейсе.
+В настоящий момент програмный продукт опубликован на Sourceforge\cite{SSBM} в статусе Beta.\\
+В дальнейшем планируется дальнейшая разработка приложения согласно отзывам пользователей, создание графиков по итогам доходов/расходов, разбор операций путём разбора изображений с сфотографированного чека.
 % оформление библиографии - вариант с БД
 
 \pagebreak
 \nocite{qtdoc}
 \nocite{qt532015}
 \nocite{Warren2007}
-\addcontentsline{toc}{section}{СПИСОК ИСПОЛЬЗОВАННОЙ ЛИТЕРАТУРЫ}
+\addcontentsline{toc}{section}{\refname}
 \printbibliography
 
 \pagebreak
-\section*{\centering Приложение}
+
 \addcontentsline{toc}{section}{Приложение}
 
 
